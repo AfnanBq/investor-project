@@ -6,7 +6,7 @@ from resources.alerts.alert_dal import create_alert, get_alerts
 from resources.alerts.alert_schema import AlertCreate
 
 
-def create_new_alert(rule: AlertCreate, session):
+def create_new_alert(alert: AlertCreate, session):
     """ "Helper function to create a new alert.
     Args:
     - rule: AlertCreate - The alert to create containing the alert rule ID.
@@ -14,7 +14,7 @@ def create_new_alert(rule: AlertCreate, session):
     Returns:
     - Alert - The created alert.
     """
-    create_alert(rule=rule, session=session)
+    create_alert(alert=alert, session=session)
 
 
 def get_all_alerts(session):
