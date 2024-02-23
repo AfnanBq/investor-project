@@ -1,5 +1,8 @@
 {
-  "cSpell.words": ["cockroachdb", "Twelvedata"],
+  "cSpell.words": [
+    "cockroachdb",
+    "Twelvedata"
+  ],
   "editor.wordWrap": "wordWrapColumn",
   "python.analysis.indexing": true,
   "python.analysis.autoSearchPaths": true,
