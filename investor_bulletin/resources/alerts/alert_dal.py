@@ -3,11 +3,11 @@
 this file is to right any ORM logic for the Alert model
 """
 from db.models import Alert
-from resources.alerts.alert_schema import AlertCreate
+from resources.alerts.alert_schema import AlertCreate, AlertList
 from sqlalchemy.exc import DBAPIError,SQLAlchemyError
 
 
-def create_alert (alert: AlertCreate,session):
+def create_alert (alert: AlertCreate,session) -> None:
     """Create an alert."""
     try:
         print(f"Creating alert for alert rule ID: {alert.alert_rule_id}")
@@ -20,7 +20,7 @@ def create_alert (alert: AlertCreate,session):
         raise error
 
 
-def get_alerts (session):
+def get_alerts (session) -> AlertList:
     """Get all alerts."""
     try:
         return session.query(Alert).all()

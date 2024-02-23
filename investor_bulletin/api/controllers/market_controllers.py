@@ -24,7 +24,7 @@ async def get_market_data_route (
     - StockResponse: The response containing the stock data for the sent symbols in the request.
     """
     symbol_param = (
-        f"{Symbol.AAPL},{Symbol.MSFT},{Symbol.GOOG},{Symbol.AMZN},{Symbol.META}"
+        f"{Symbol.AAPL.value},{Symbol.MSFT.value},{Symbol.GOOG.value},{Symbol.AMZN.value},{Symbol.META.value}"
     )
     if symbol:
         symbol_param = symbol.value

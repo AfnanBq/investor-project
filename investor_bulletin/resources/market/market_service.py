@@ -101,7 +101,7 @@ async def get_market_data (symbol: str) -> Dict[str,Dict]:
 
     response = await request(
         url = settings.TWELVE_DATA_BASE_URL,
-        path = f"{TwelveDataEndpoints.RealTimePrice}",
+        path = f"{TwelveDataEndpoints.RealTimePrice.value}",
         headers = {
             "X-RapidAPI-Key": settings.RapidAPI_Key,
             "X-RapidAPI-Host": settings.RapidAPI_Host,

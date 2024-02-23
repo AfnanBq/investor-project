@@ -11,10 +11,10 @@ from resources.alert_rules.alert_rule_dal import (
     get_alert_rules,
     update_rule,
 )
-from resources.alert_rules.alert_rule_schema import AlertRuleCreate,AlertRuleUpdate
+from resources.alert_rules.alert_rule_schema import AlertRuleCreate,AlertRuleUpdate, AlertRule, AlertRuleList
 
 
-def create_new_rule (rule: AlertRuleCreate,session):
+def create_new_rule (rule: AlertRuleCreate,session) -> None:
     """ "Helper function to create a new alert rule.
     Args:
     - rule: AlertRuleCrudBase - The alert rule to create containing the name, threshold price, and symbol.
@@ -25,7 +25,7 @@ def create_new_rule (rule: AlertRuleCreate,session):
     create_alert_rule(rule = rule,session = session)
 
 
-def get_alert_rule_by_id (rule_id: UUID,session):
+def get_alert_rule_by_id (rule_id: UUID,session) -> AlertRule:
     """Helper function to get an alert rule by ID.
     Args:
     - rule_id: uuid - The ID of the alert rule to get.
@@ -37,7 +37,7 @@ def get_alert_rule_by_id (rule_id: UUID,session):
     return get_rule_by_id(rule_id = rule_id,session = session)
 
 
-def get_all_rules (session):
+def get_all_rules (session) -> AlertRuleList:
     """Helper function to get all alert rules.
     Args:
     - session: Session - The database session.
@@ -47,7 +47,7 @@ def get_all_rules (session):
     return get_alert_rules(session = session)
 
 
-def update_alert_rule (rule_id: UUID,rule: AlertRuleUpdate,session):
+def update_alert_rule (rule_id: UUID,rule: AlertRuleUpdate,session) -> None:
     """Helper function to update an alert rule.
     Args:
     - rule_id: uuid - The ID of the alert rule to update.
@@ -56,10 +56,10 @@ def update_alert_rule (rule_id: UUID,rule: AlertRuleUpdate,session):
     Returns:
     - AlertRule - The updated alert rule.
     """
-    return update_rule(rule_id = rule_id,rule = rule,session = session)
+    update_rule(rule_id = rule_id,rule = rule,session = session)
 
 
-def delete_alert_rule (rule_id: UUID,session):
+def delete_alert_rule (rule_id: UUID,session) -> None:
     """Helper function to delete an alert rule.
     Args:
     - rule_id: uuid - The ID of the alert rule to delete.

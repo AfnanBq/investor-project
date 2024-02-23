@@ -12,7 +12,7 @@ class Alert(Base):
     alert_rule_id = Column(
         UUID,ForeignKey("alert-rules.alert_rule_id"),nullable = False
     )
-    alert_rule = relationship("AlertRule",back_populates = "alerts")
+    alert_rule = relationship("AlertRule",back_populates = "alerts", cascade="all,delete")
     created_at = Column(DateTime,default = func.now(),nullable = False)
     updated_at = Column(
         DateTime,server_default = func.now(),onupdate = func.now(),nullable = False

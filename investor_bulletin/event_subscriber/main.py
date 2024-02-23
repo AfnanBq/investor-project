@@ -1,15 +1,15 @@
 import json
-import os
 
 from pika import BlockingConnection, ConnectionParameters
 
 from resources.alerts.alert_schema import AlertCreate
 from resources.alerts.alert_service import create_new_alert
 from db.models.model_base import SessionLocal
+from resources.config import settings
 
 
 def init_subscriber():
-    return BlockingConnection(ConnectionParameters(host=os.environ.get("RABBITMQ_HOST")))
+    return BlockingConnection(ConnectionParameters(host=settings.RABBITMQ_HOST))
 
 
 def verify_message_validity(message):
