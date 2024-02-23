@@ -41,10 +41,10 @@ if __name__ == "__main__":
     print("Message broker subscriber is running...")
     subscriber = init_subscriber()
     channel = subscriber.channel()
-    channel.queue_declare(queue="threshold_alert", durable=True)
-    channel.basic_consume(queue="threshold_alert", on_message_callback=on_event, auto_ack=True)
+    channel.queue_declare(queue="alerts", durable=True)
+    channel.basic_consume(queue="alerts", on_message_callback=on_event, auto_ack=True)
     print("Waiting for messages...")
-    channel.start_consuming()
+    channel.start_consuming() 
 
     print("Closing connection...")
     subscriber.close()

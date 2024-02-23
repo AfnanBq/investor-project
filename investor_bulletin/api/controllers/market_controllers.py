@@ -8,7 +8,7 @@ router = APIRouter()
 
 
 @router.get("")
-async def get_market_data_route (
+async def get_market_data_api(
         symbol: Optional[Symbol] = Query(
             None,title = "Symbol",description = "The symbol of the stock",example = "AAPL"
         )

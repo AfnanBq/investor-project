@@ -2,6 +2,7 @@
 """_summary_
 this file to write any business logic for the Alert Rules
 """
+from typing import Dict, List
 from uuid import UUID
 
 from resources.alert_rules.alert_rule_dal import (
@@ -10,6 +11,7 @@ from resources.alert_rules.alert_rule_dal import (
     get_rule_by_id,
     get_alert_rules,
     update_rule,
+    get_alert_rule_ids_crossed_threshold,
 )
 from resources.alert_rules.alert_rule_schema import AlertRuleCreate,AlertRuleUpdate, AlertRule, AlertRuleList
 
@@ -66,3 +68,13 @@ def delete_alert_rule (rule_id: UUID,session) -> None:
     - session: Session - The database session.
     """
     delete_rule(rule_id = rule_id,session = session)
+
+def get_crossed_threshold_ids(session, market_data: Dict[str, float]) -> List[UUID]:
+    """Helper function to get all alert rule ids that have crossed the threshold.
+    Args:
+    - session: Session - The database session.
+    Returns:
+    - List[UUID] - A list of alert rule ids that have crossed the threshold.
+    """
+
+    return get_alert_rule_ids_crossed_threshold(session = session, market_data = market_data)
