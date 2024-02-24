@@ -25,6 +25,8 @@ python-dotenv          1.0.1
 SQLAlchemy             2.0.27
 sqlalchemy-cockroachdb 2.0.2
 uvicorn                0.27.1
+asgiref                3.7.2
+celery                 5.3.6
 ```
 3- Run docker containers by typing the following command on terminal
 ```bash
@@ -34,14 +36,13 @@ make up
 ```bash
 export PYTHONPATH="$(pwd)/investor_bulletin" && python investor_bulletin/api/main.py
 ```
-5- Run subscriber 
-```bash 
-export PYTHONPATH="$(pwd)/investor_bulletin" && python investor_bulletin/core/messaging.py
-```
-
-6- Run consumer
+5- Run celery worker 
 ```bash
-export PYTHONPATH="$(pwd)/investor_bulletin" && python investor_bulletin/event_subscriber/main.py
+export PYTHONPATH="$(pwd)/investor_bulletin" && celery -A worker.app worker --loglevel=INFO
+```
+6- Run celery beat
+```bash
+export PYTHONPATH="$(pwd)/investor_bulletin" && celery -A worker.app beat --loglevel=INFO
 ```
 ### Phase 1 Results
 - Get markets
@@ -61,6 +62,9 @@ export PYTHONPATH="$(pwd)/investor_bulletin" && python investor_bulletin/event_s
 #### Phase 2 Results
 <img width="1099" alt="Screenshot 1445-08-13 at 4 11 05 PM" src="https://github.com/AfnanBq/malaa-project/assets/44619363/b502484a-ab65-4b98-8a0d-eadc34ac60b0">
 <img width="1099" alt="Screenshot 1445-08-13 at 4 11 14 PM" src="https://github.com/AfnanBq/malaa-project/assets/44619363/b4955e36-ee72-45ce-a8e9-6ec406ff3ac1">
+
+### Phase 3 Results
+<img width="1099" alt="Screenshot 1445-08-14 at 10 58 27 AM" src="https://github.com/AfnanBq/malaa-project/assets/44619363/2c8c4b75-3596-4b0d-9fd2-eb75054ed7b1">
 
 
 ### Reference:
