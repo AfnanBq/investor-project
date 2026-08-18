@@ -1,6 +1,4 @@
-# Malaa Project
-
-This project is post-interview project from Malaa Company, with the goal of gaining insight into the company's technology stack and its business aspects.
+# Investor Project
 
 ## Project setup
 
@@ -65,7 +63,3 @@ export PYTHONPATH="$(pwd)/investor_bulletin" && celery -A worker.app beat --logl
 
 ### Phase 3 Results
 <img width="1099" alt="Screenshot 1445-08-14 at 10 58 27 AM" src="https://github.com/AfnanBq/malaa-project/assets/44619363/2c8c4b75-3596-4b0d-9fd2-eb75054ed7b1">
-
-
-### Reference:
-[investor-bulletin Project](https://github.com/Malaa-tech/investor-bulletin/tree/main)
