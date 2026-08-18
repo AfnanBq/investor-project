@@ -6,7 +6,7 @@
 ```bash
 git clone https://github.com/AfnanBq/malaa-project.git
 ```
-2- Install all requried libraires 
+2- Install all the required libraries 
 ```
 Package                Version
 ---------------------- --------
